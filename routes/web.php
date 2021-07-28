@@ -15,7 +15,7 @@ use App\Http\Controllers\EmployeeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 
 Route::get('/pegawai',[EmployeeController::class,'index'])->name('pegawai');

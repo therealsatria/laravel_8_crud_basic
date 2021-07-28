@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,7 @@ use App\Http\Controllers\EmployeeController;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('welcome');
 });
 
 Route::get('/pegawai',[EmployeeController::class,'index'])->name('pegawai');
@@ -27,3 +28,9 @@ Route::get('/tampilkandata/{id}',[EmployeeController::class,'tampilkandata'])->n
 Route::post('/updatedata/{id}',[EmployeeController::class,'updatedata'])->name('updatedata');
 
 Route::get('/delete/{id}',[EmployeeController::class,'delete'])->name('delete');
+
+Route::get('/login',[LoginController::class,'login'])->name('login');
+Route::get('/register',[LoginController::class,'register'])->name('register');
+Route::post('/registeruser',[LoginController::class,'registeruser'])->name('registeruser');
+
+

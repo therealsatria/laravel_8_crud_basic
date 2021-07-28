@@ -26,4 +26,11 @@ class LoginController extends Controller
         ]);
         return redirect('/login');
     }
+
+    public function loginproses(Request $request){
+        if(auth::attempt($request->only('id','pass'))){
+            return redirect('/');
+        }
+        return redirect('/login');
+    }
 }

@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/pegawai',[EmployeeController::class,'index'])->name('pegawai');
+Route::get('/pegawai',[EmployeeController::class,'index'])->name('pegawai')->middleware('auth');
 
 Route::get('/tambahpegawai',[EmployeeController::class,'tambahpegawai'])->name('tambahpegawai');
 Route::post('/insertdata',[EmployeeController::class,'insertdata'])->name('insertdata');
@@ -32,8 +32,9 @@ Route::get('/delete/{id}',[EmployeeController::class,'delete'])->name('delete');
 Route::get('/login',[LoginController::class,'login'])->name('login');
 Route::post('/loginproses',[LoginController::class,'loginproses'])->name('loginproses');
 
-
-Route::get('/register',[LoginController::class,'register'])->name('register');
+Route::get('/register',[LoginController::class,'register'])->name('register')->middleware('auth');
 Route::post('/registeruser',[LoginController::class,'registeruser'])->name('registeruser');
+
+Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
 

@@ -70,17 +70,17 @@
         }
     </style>
 
-    
+
     <!-- Custom styles for this template -->
-    
+
   </head>
   <body class="text-center">
-    
+
 <main class="form-signin">
   <form action="/registeruser" method="post">
     @csrf
     <img class="mb-4" src="https://image.flaticon.com/icons/png/512/4696/4696754.png" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <h1 class="h3 mb-3 fw-normal">Form Register</h1>
     <label for="inputEmail" class="visually-hidden">Name</label>
     <input type="text" id="inputEmail" name="name" class="form-control" placeholder="Name" required autofocus>
     <label for="inputEmail" class="visually-hidden">Email address</label>
@@ -93,6 +93,6 @@
 </main>
 
 
-    
+
   </body>
 </html>

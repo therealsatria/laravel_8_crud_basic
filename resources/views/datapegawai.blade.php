@@ -65,9 +65,10 @@
         {{ $data->links() }}
     </div>
     <hr>
+    sign in as <a href="/logout">{{ Auth::user()->name }}</a>
 </div>
 
-    
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 

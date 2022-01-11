@@ -8,11 +8,8 @@
     <meta name="generator" content="Hugo 0.79.0">
     <title>Register</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
-
     <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="{{ asset('assets/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <style>
         body {
         height: 100%;
@@ -77,7 +74,7 @@
   <body class="text-center">
 
 <main class="form-signin">
-  <form action="/registeruser" method="post">
+  <form action="{{ url(''); }}/registeruser" method="post">
     @csrf
     <img class="mb-4" src="https://image.flaticon.com/icons/png/512/4696/4696754.png" alt="" width="72" height="72">
     <h1 class="h3 mb-3 fw-normal">Form Register</h1>

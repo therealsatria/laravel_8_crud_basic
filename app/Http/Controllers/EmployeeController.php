@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use PDF;
 
 class EmployeeController extends Controller
 {
@@ -12,8 +14,9 @@ class EmployeeController extends Controller
             $data = Employee::where('nama','LIKE','%' .$request->search. '%')->paginate(5);
         }else{
             $data = Employee::paginate(5);
+            Session::put('halaman_url',request()->fullUrl());
         }
-        
+
         return view('datapegawai',compact('data'));
     }
 
@@ -34,6 +37,9 @@ class EmployeeController extends Controller
     public function updatedata(Request $request,$id){
         $data = Employee::find($id);
         $data->update($request->all());
+        if(session('halaman_url')){
+            return redirect(session('halaman_url'))->with('success','data berhasil diupdate');
+        }
         return redirect()->route("pegawai")->with('success','data berhasil diupdate');
     }
 
@@ -41,5 +47,16 @@ class EmployeeController extends Controller
         $data = Employee::find($id);
         $data->delete();
         return redirect()->route("pegawai")->with('success','data berhasil dihapus');
+    }
+
+    public function lte(){
+        return view('lte');
+    }
+
+    public function exportpdf(){
+        $data = Employee::all();
+        view()->share('data',$data);
+        $pdf = PDF::loadview('datapegawai-pdf');
+        return $pdf->download('data.pdf');
     }
 }

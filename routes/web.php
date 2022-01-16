@@ -38,7 +38,7 @@ Route::post('/registeruser',[LoginController::class,'registeruser'])->name('regi
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
 // ujicoba
-Route::get('/lte',[EmployeeController::class,'lte'])->name('register');
+Route::get('/lte',[EmployeeController::class,'lte'])->name('test');
 
 //export pdf
 Route::get('/exportpdf',[EmployeeController::class,'exportpdf'])->name('exportpdf');
